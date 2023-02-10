@@ -1,6 +1,7 @@
 ### ubuntu离线安装deb依赖包,在有互联网的主机执行,然后压缩打包.
 ```javascript
 cd /tmp
+apt-get install lsb-release
 apt-get --allow-unauthenticated -y install --print-uris python3-pip | cut -d\' -f2 | grep http:// > /tmp/download-list
 wget -i download-list
 tar zcvf tmp.tar.gz tmp
