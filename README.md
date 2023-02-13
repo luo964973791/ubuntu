@@ -6,7 +6,7 @@ cd /var/cache/apt/archives
 tar zcvf tmp.tar.gz tmp
 #在没互联网的ubuntu服务器安装依赖.
 tar xvf tmp.tar.gz && cd tmp
-apt-get install ./*.deb
+apt-get install ./*.deb --no-install-recommends
 ```
 
 
