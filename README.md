@@ -1,10 +1,8 @@
 ### ubuntu离线安装deb依赖包,在有互联网的主机执行,然后压缩打包.
 ```javascript
 cd /tmp
-apt-get reinstall --download-only lsb-release  #/var/cache/apt/archives会默认存储到这个路径下.
-apt-get install lsb-release
-apt-get --allow-unauthenticated -y install --print-uris python3-pip | cut -d\' -f2 | grep http:// > /tmp/download-list
-wget -i download-list
+apt-get install python3-pip --download-only --no-install-recommends
+cd /var/cache/apt/archives
 tar zcvf tmp.tar.gz tmp
 #在没互联网的ubuntu服务器安装依赖.
 tar xvf tmp.tar.gz && cd tmp
